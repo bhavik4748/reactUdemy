@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import Person from './Person/Person';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-
-        <p className="App-intro">
-         Hi Welcome to React App!!!
-        </p>
+        <h1> Hi Welcome to React App!!!</h1>
+        <Person name="Bhavik" age="34" />
+        <Person name="Pooja" age="30" />
       </div>
     );
   }
