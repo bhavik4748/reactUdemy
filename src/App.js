@@ -40,9 +40,17 @@ class App extends Component {
       <div className="App">
         <h1> Hi Welcome to React App!!!</h1>
         <button onClick={() => this.switchNameHandler()}>switch name</button>
-        <Person name={this.state.Person[0].name} age={this.state.Person[0].age} />
-        <Person name={this.state.Person[1].name} age={this.state.Person[1].age} />
-        <Person click={this.switchNameHandler.bind(this, "Bhav!")} name={this.state.Person[2].name} age={this.state.Person[2].age} change={this.nameChangedHandler}> This is P's bro </Person >
+        <Person
+          name={this.state.Person[0].name}
+          age={this.state.Person[0].age} />
+        <Person
+          name={this.state.Person[1].name}
+          age={this.state.Person[1].age} />
+        <Person
+          click={this.switchNameHandler.bind(this, "Bhav!")}
+          name={this.state.Person[2].name}
+          age={this.state.Person[2].age}
+          change={this.nameChangedHandler}> This is P's bro </Person >
       </div>
     );
   }
