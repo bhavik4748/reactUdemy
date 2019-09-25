@@ -4,7 +4,6 @@ import './App.css';
 import Person from './Person/Person';
 
 class App extends Component {
-
   state = {
     Person: [
       { name: "Mr B.", age: "34" },
@@ -14,8 +13,6 @@ class App extends Component {
   }
 
   switchNameHandler = (newName) => {
-    // console.log('was clicked');
-
     this.setState({
       Person: [
         { name: newName, age: "34" },
@@ -28,8 +25,8 @@ class App extends Component {
   nameChangedHandler = (event) => {
     this.setState({
       Person: [
-        { name: event.target.value, age: "34" },
-        { name: "Mrs P", age: "30" },
+        { name: "Mr B", age: "34" },
+        { name: event.target.value, age: "30" },
         { name: "Mr A", age: "27" }
       ]
     })
@@ -45,12 +42,13 @@ class App extends Component {
           age={this.state.Person[0].age} />
         <Person
           name={this.state.Person[1].name}
-          age={this.state.Person[1].age} />
+          age={this.state.Person[1].age}
+          changed={this.nameChangedHandler} />
         <Person
           click={this.switchNameHandler.bind(this, "Bhav!")}
           name={this.state.Person[2].name}
-          age={this.state.Person[2].age}
-          change={this.nameChangedHandler}> This is P's bro </Person >
+          age={this.state.Person[2].age}>
+          This is P's bro </Person >
       </div>
     );
   }
