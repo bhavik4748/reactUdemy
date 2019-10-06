@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import './App.css';
 import Person from './Person/Person';
 
@@ -14,14 +13,15 @@ class App extends Component {
   }
 
 
-  nameChangedHandler = (event) => {
-    this.setState({
-      Person: [
-        { id: "sdgss", name: "Mr B", age: "34" },
-        { id: "sdswe", name: event.target.value, age: "30" },
-        { id: "fgndg", name: "Mr A", age: "27" }
-      ]
-    })
+  nameChangedHandler = (event, id) => {
+    const personId = this.state.Person.findIndex((p) => {
+      return (p.id === id);
+    });
+
+    const Persons = [...this.state.Person];
+    Persons[personId].name = event.target.value;
+
+    this.setState({ Person: Persons });
   }
 
   deletePersonHandler = (personIndex) => {
@@ -47,8 +47,6 @@ class App extends Component {
 
     let persons = null;
     if (this.state.showPersons) {
-      console.log(this.state.Person);
-
       persons = (
         <div>
           {
@@ -58,12 +56,12 @@ class App extends Component {
                 name={person1.name}
                 age={person1.age}
                 key={person1.id}
+                changed={(event) => this.nameChangedHandler(event, person1.id)}
               />
             })
           }
         </div>
-      );
-      console.log(persons);
+      );      
     }
     return (
       <div className="App">
