@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
+import cssClasses from './App.css';
 import Person from './Person/Person';
-import Radium, { StyleRoot } from 'radium';
+
 
 class App extends Component {
     state = {
@@ -45,16 +45,12 @@ class App extends Component {
             border: '1px solid blue',
             padding: '8px',
             cursor: 'pointer',
-            ':hover': {
-                color: 'black',
-                backgroundColor: 'lightgreen',
-            }
         }
         let addClass = [];
         if (this.state.Person.length <= 2)
-            addClass.push('red');
+            addClass.push(cssClasses.red);
         if (this.state.Person.length <= 1)
-            addClass.push('bold');
+            addClass.push(cssClasses.bold);
 
         let persons = null;
         if (this.state.showPersons) {
@@ -74,24 +70,18 @@ class App extends Component {
                 </div>
             );
             style.backgroundColor = 'red';
-            style[':hover'] = {
-                backgroundColor: 'pink',
-                color: 'black',
-            }
         }
         return (
-            <StyleRoot>
-                <div className="App">
-                    <h1> Hi Welcome to React App!!!</h1>
-                    <div className={addClass.join(' ')}>This is really working!!</div>
-                    <button
-                        style={style}
-                        onClick={this.togglePersonsHandler}>Toggle Name</button>
-                    {persons}
-                </div>
-            </StyleRoot>
+            <div className={cssClasses.App}>
+                <h1> Hi Welcome to React App!!!</h1>
+                <div className={addClass.join(' ')}>This is really working!!</div>
+                <button
+                    style={style}
+                    onClick={this.togglePersonsHandler}>Toggle Name</button>
+                {persons}
+            </div>
         );
     }
 }
 
-export default Radium(App);
+export default App;
