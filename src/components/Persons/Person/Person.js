@@ -1,9 +1,10 @@
 import React from 'react';
-import  './Person.css';
+import cssClasses from './Person.css';
+
 
 const person = (props) => {
     return (
-        <div className="Person">
+        <div className={cssClasses.Person}>
             <p onClick={props.click}>
                 I am {props.name} and I am {props.age}
             </p>
@@ -14,7 +15,6 @@ const person = (props) => {
             </p>
         </div>
     )
-
 }
 
 export default person;
